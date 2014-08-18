@@ -1,33 +1,13 @@
-application: burnished-road-676
-version: app-1
+application: hello-django-app-engine
+version: 1
 runtime: python27
 api_version: 1
 threadsafe: true
 
-derived_file_type:
-- python_precompiled
+handlers:
+- url: .*
+  script: myproject.wsgi.application
 
 libraries:
 - name: django
-  version: "1.2"
-
-handlers:
-- url: /images
-  static_dir: templates/_images
-
-- url: /css
-  static_dir: templates/_css
-  
-- url: /js
-  static_dir: templates/_js
-
-- url: /favicon.ico
-  static_files: templates/_images/favicon.ico
-  upload: templates/_images/favicon.ico
-  
-- url: /robots.txt
-  static_files: templates/_images/robots.txt
-  upload: templates/_images/favicon.ico
-
-- url: /.*
-  script: main.app
+  version: 1.5
